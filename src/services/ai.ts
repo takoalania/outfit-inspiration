@@ -7,13 +7,15 @@ export const getOutfitSuggestions = async (image?: string, prompt?: string) => {
     });
 
     if (!res.ok) {
-      throw new Error(`API error: ${res.status}`);
+      const err = await res.text();
+      console.error('Server error:', err);
+      throw new Error(err);
     }
 
     const data = await res.json();
     return data.suggestions;
-  } catch (error) {
-    console.error('Failed to fetch outfit suggestions:', error);
-    return 'Sorry, we couldn’t generate suggestions right now.';
+  } catch (err) {
+    console.error('Fetch failed:', err);
+    throw err;
   }
 };
