@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "outfit-inspiration",
+    "name": "Outfit Inspiration",
     "slug": "outfit-inspiration",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,9 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.takoalania.outfitinspiration"
     },
     "android": {
+      "package": "com.takoalania.outfitinspiration",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -24,6 +26,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "83047de5-213d-47a6-99a6-8c2fe5785588"
+      }
+    },
+    "owner": "takoalania"
   }
 }
