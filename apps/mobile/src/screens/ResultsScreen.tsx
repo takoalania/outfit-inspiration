@@ -10,6 +10,7 @@ import {
 import { useRoute, RouteProp } from '@react-navigation/native';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 import { getOutfitSuggestions } from '../services/ai';
+import Layout from '../components/Layout';
 
 const ResultsScreen = () => {
   const route = useRoute<RouteProp<RootStackParamList, 'Results'>>();
@@ -35,41 +36,45 @@ const ResultsScreen = () => {
 
   if (loading) {
     return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#007AFF" />
-        <Text style={styles.loadingText}>Generating outfit ideas...</Text>
-      </View>
+      <Layout>
+        <View style={styles.center}>
+          <ActivityIndicator size="large" color="#007AFF" />
+          <Text style={styles.loadingText}>Generating outfit ideas...</Text>
+        </View>
+      </Layout>
     );
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Outfit Suggestions</Text>
-      <View style={styles.card}>
-  {suggestions?.split('\n').map((line, index) => {
-    const match = line.match(/\[(.*?)\]/); // find [keywords]
-    const keyword = match?.[1];
-    const queryUrl = keyword
-      ? `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(keyword)}`
-      : null;
+    <Layout>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}>Outfit Suggestions</Text>
+        <View style={styles.card}>
+    {suggestions?.split('\n').map((line, index) => {
+      const match = line.match(/\[(.*?)\]/); // find [keywords]
+      const keyword = match?.[1];
+      const queryUrl = keyword
+        ? `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(keyword)}`
+        : null;
 
-    return (
-      <View key={index} style={{ marginBottom: 12 }}>
-        <Text style={styles.outfitText}>{line.replace(/\[.*?\]/, '').trim()}</Text>
-        {queryUrl && (
-          <Text
-            style={{ color: '#007AFF', marginTop: 4 }}
-            onPress={() => {
-            Linking.openURL(queryUrl);
-            }}>
-            View outfit ideas
-          </Text>
-        )}
-      </View>
-            );
-        })}
+      return (
+        <View key={index} style={{ marginBottom: 12 }}>
+          <Text style={styles.outfitText}>{line.replace(/\[.*?\]/, '').trim()}</Text>
+          {queryUrl && (
+            <Text
+              style={{ color: '#007AFF', marginTop: 4 }}
+              onPress={() => {
+              Linking.openURL(queryUrl);
+              }}>
+              View outfit ideas
+            </Text>
+          )}
         </View>
-    </ScrollView>
+              );
+          })}
+          </View>
+      </ScrollView>
+    </Layout>
   );
 };
 

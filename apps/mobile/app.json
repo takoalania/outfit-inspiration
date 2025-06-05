@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Outfit Inspiration",
-    "slug": "outfit-inspiration",
+    "name": "Tannenbaum",
+    "slug": "tannenbaum",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/logo.jpg",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./src/assets/logo.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,13 +19,13 @@
     "android": {
       "package": "com.takoalania.outfitinspiration",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/logo.jpg",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/logo.jpg"
     },
     "extra": {
       "eas": {
