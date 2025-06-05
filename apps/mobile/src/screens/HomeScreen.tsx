@@ -146,16 +146,19 @@ function createStyles(isMobile: boolean) {
       paddingHorizontal: 16,
       flex: 1,
       justifyContent: 'center',
+      height: 52,
     },
     uploadContent: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: isMobile ? 'flex-start' : 'center',
-      gap: 8,
+      paddingHorizontal: 8,
     },
     uploadText: {
+      marginLeft: 8,
       fontSize: 16,
       fontWeight: '500',
+      color: "#000",
     },
     promptInput: {
       flex: 1,
@@ -168,6 +171,7 @@ function createStyles(isMobile: boolean) {
       borderWidth: 1,
       borderColor: '#ccc',
       justifyContent: 'center',
+      color: "#000",
     },
     submitButton: {
       backgroundColor: '#2196f3',

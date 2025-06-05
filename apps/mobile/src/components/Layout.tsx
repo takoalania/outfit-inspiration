@@ -1,12 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from './Header';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <Header />
       {children}
-    </View>
+    </SafeAreaView>
   );
 }
